@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option go_package = "./protobuf";
+
+service StreamService {
+    rpc Eat(Request) returns (stream Response) {}
+    rpc Work(stream Request) returns (Response) {}
+    rpc Sleep(stream Request) returns (stream Response) {}
+}
+
+message Request{
+    string name = 1;
+}
+
+message Response{
+    string result = 1;
+}
